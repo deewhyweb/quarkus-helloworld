@@ -17,18 +17,18 @@ public class GreetingResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)    
-             .body(is("hello there edit"));
+             .body(is("hello localhost"));
     }
 
     @Test
     public void testGreetingEndpoint() {
         String uuid = UUID.randomUUID().toString();
         given()
-          .pathParam("name", uuid)
+          .pathParam("name", "localhost")
           .when().get("/hello/greeting/{name}")
           .then()
             .statusCode(200)
-            .body(is("hello " + uuid));
+            .body(is("hello localhost"));
     }
 
 }
